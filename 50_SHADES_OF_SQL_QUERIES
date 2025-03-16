@@ -139,3 +139,47 @@ SELECT * FROM WORKER ORDER BY FIRST_NAME ASC;
 -- 12 Write an SQL query to print all Worker details from worker table order by first_name ascending and department  descending 
 SELECT * FROM WORKER ORDER BY FIRST_NAME ASC, DEPARTMENT DESC;
 
+
+-- 13 Write an SQL Query to print details for Workers with the first name as "Vipul" and "Satish" from Worker table.
+SELECT * FROM WORKER WHERE FIRST_NAME IN("SATISH","VIPUL");
+
+
+-- 14 Write and SQL query to print details of workers excluding firstname as "Vipul" and "Satish" from Worker table.
+SELECT * FROM WORKER WHERE FIRST_NAME NOT IN("SATISH","VIPUL");
+
+
+-- 15 Write and SQL query to print details of worker with department name as "ADMIN*"
+SELECT * FROM WORKER WHERE DEPARTMENT LIKE "ADMIN%";
+
+
+-- 16 Write an SQL query to print details of the Workers whose FIRST_NAME contains 'a';
+SELECT * FROM WORKER WHERE FIRST_NAME LIKE "%A%";
+
+
+-- 17 Write and SQL query to print details of workers whose FIRST_NAME ends with 'a';
+SELECT * FROM WORKER WHERE FIRST_NAME LIKE "%a";
+
+
+-- 18.  Write and SQL query to print details of workers whose FIRST_NAME ends with 'h' and contains six alphabets.
+SELECT * FROM WORKER WHERE FIRST_NAME LIKE "_____H" AND LENGTH(FIRST_NAME)=6;
+
+
+-- 19   Write and SQL query to print details of workers whose SALARY lies between 100000 and 500000;
+SELECT * FROM WORKER WHERE SALARY BETWEEN 100000 AND 500000;
+
+
+-- 20   Write and SQL query to print details of workers who have joined in FEB'2014
+SELECT * FROM WORKER WHERE MONTH(JOINING_DATE)=2 AND YEAR(JOINING_DATE)=2014;
+
+
+-- 21 Write and SQL query to fetch the count of employees working in the deparment 'Admin'
+SELECT DEPARTMENT, COUNT(*) FROM WORKER WHERE DEPARTMENT = "ADMIN";
+
+
+-- 22 Write and SQL query to fetch worker full names with salaries >=50000 and <=100000;
+SELECT  CONCAT(FIRST_NAME," ",LAST_NAME) AS FULL_NAME FROM WORKER WHERE SALARY BETWEEN 50000 AND 100000;
+
+
+-- 23 Write and SQL Query to fetch the no of worker for each department in the descending order.
+SELECT DEPARTMENT, COUNT(WORKER_ID) AS CNT FROM WORKER GROUP BY DEPARTMENT ORDER BY CNT DESC;
+
